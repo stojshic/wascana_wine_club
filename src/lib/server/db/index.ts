@@ -1,9 +1,10 @@
 import { drizzle as drizzleLibsql } from 'drizzle-orm/libsql';
 import { createClient } from '@libsql/client';
+import { env } from '$env/dynamic/private';
 import * as schema from './schema';
 
-const tursoUrl = process.env.TURSO_DATABASE_URL;
-const tursoAuthToken = process.env.TURSO_AUTH_TOKEN;
+const tursoUrl = env.TURSO_DATABASE_URL;
+const tursoAuthToken = env.TURSO_AUTH_TOKEN;
 
 let db: ReturnType<typeof drizzleLibsql>;
 
