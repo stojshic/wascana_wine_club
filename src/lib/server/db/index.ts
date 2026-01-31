@@ -1,26 +1,35 @@
 import { drizzle as drizzleLibsql } from 'drizzle-orm/libsql';
-import { createClient } from '@libsql/client';
-import { env } from '$env/dynamic/private';
+import { createClient, type Client } from '@libsql/client';
 import * as schema from './schema';
 
-const tursoUrl = env.TURSO_DATABASE_URL;
-const tursoAuthToken = env.TURSO_AUTH_TOKEN;
+let client: Client | null = null;
+let _db: ReturnType<typeof drizzleLibsql> | null = null;
 
-let db: ReturnType<typeof drizzleLibsql>;
+function initDb() {
+	if (_db) return _db;
 
-if (tursoUrl && tursoAuthToken) {
-	// Production: Use Turso
-	const client = createClient({
-		url: tursoUrl,
-		authToken: tursoAuthToken
-	});
-	db = drizzleLibsql(client, { schema });
-} else {
-	// Local development: Use libsql with local file
-	const client = createClient({
-		url: 'file:./data/wine-club.db'
-	});
-	db = drizzleLibsql(client, { schema });
+	const tursoUrl = process.env.TURSO_DATABASE_URL;
+	const tursoAuthToken = process.env.TURSO_AUTH_TOKEN;
+
+	if (tursoUrl && tursoAuthToken) {
+		client = createClient({
+			url: tursoUrl,
+			authToken: tursoAuthToken
+		});
+	} else {
+		client = createClient({
+			url: 'file:./data/wine-club.db'
+		});
+	}
+
+	_db = drizzleLibsql(client, { schema });
+	return _db;
 }
 
-export { db };
+// Use a proxy to lazily initialize the database on first access
+export const db = new Proxy({} as ReturnType<typeof drizzleLibsql>, {
+	get(_, prop) {
+		const database = initDb();
+		return (database as Record<string | symbol, unknown>)[prop];
+	}
+});
