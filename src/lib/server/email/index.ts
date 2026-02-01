@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 import { RESEND_API_KEY, APP_URL } from '$env/static/private';
 
-const FROM_EMAIL = 'Wascana Wine Club <noreply@wascanawineclub.com>';
+const FROM_EMAIL = 'Wascana Wine Club <noreply@notifications.wascanawineclub.com>';
 
 function getResendClient() {
 	if (!RESEND_API_KEY) {
