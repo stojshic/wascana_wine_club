@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from '$app/stores';
 	import { enhance } from '$app/forms';
 
 	interface Props {
@@ -6,28 +7,63 @@
 	}
 
 	let { user }: Props = $props();
+
+	const navItems = [
+		{ href: '/admin', label: 'ADMIN PANEL', icon: 'admin', auth: 'admin' },
+		{ href: '/dashboard', label: 'RESERVATIONS', icon: 'wine', auth: 'user' },
+		{ href: '/', label: 'WINES', icon: 'home', auth: 'any' },
+		{ href: '/logout', label: 'LOGOUT', icon: 'users', auth: 'user', type: 'form' }
+	];
+
+	// Optional helper for active link styling
+	function isActive(href: string) {
+		return href === $page.url.pathname;
+	}
 </script>
 
-<nav class="bg-white shadow">
+<nav class="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex justify-between h-16 items-center">
-			<a href="/" class="text-xl font-bold text-purple-600">Wine Club</a>
-			<div class="flex items-center gap-4">
+		<div class="flex justify-between h-26 items-center">
+			<!-- Logo left -->
+			<a href="/" class="flex items-center gap-2">
+				<img src="/logo.webp" alt="Wascana Wine Club" class="h-24 w-auto" />
+			</a>
+
+			<!-- Nav right -->
+			<div class="flex items-center gap-2">
 				{#if user}
-					{#if user.role === 'admin'}
-						<a href="/admin" class="text-gray-700 hover:text-purple-600 transition">Management</a>
-					{/if}
-					<a href="/dashboard" class="text-gray-700 hover:text-purple-600 transition">Dashboard</a>
-					<a href="/" class="text-gray-700 hover:text-purple-600 transition">Wines</a>
-					<span class="text-gray-600 hidden sm:inline">Hello, {user.name}</span>
-					<form method="POST" action="/logout" use:enhance>
-						<button type="submit" class="text-gray-600 hover:text-red-600 transition">
-							Logout
-						</button>
-					</form>
+					{#each navItems as item}
+						{#if item.auth === 'any' || (item.auth === 'user' && user) || (item.auth === 'admin' && user.role === 'admin')}
+							{#if item.type === 'form'}
+								<form method="POST" action={item.href} use:enhance>
+									<button
+										type="submit"
+										class="px-4 py-2 rounded-lg transition hover:bg-[#c4a142] flex items-center gap-1 text-gray-700"
+									>
+										{item.label}
+									</button>
+								</form>
+							{:else}
+								<a
+									href={item.href}
+									class="px-4 py-2 rounded-lg transition {isActive(item.href) ? 'bg-[#c4a142]' : 'hover:bg-[#c4a142]'} flex items-center gap-1 text-gray-700"
+								>
+									{item.label}
+								</a>
+							{/if}
+						{/if}
+					{/each}
 				{:else}
-					<a href="/login" class="text-gray-700 hover:text-purple-600 transition">Login</a>
-					<a href="/register" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+					<a
+						href="/login"
+						class="px-4 py-2 rounded-lg text-gray-700 hover:bg-[#c4a142] transition"
+					>
+						Login
+					</a>
+					<a
+						href="/register"
+						class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+					>
 						Register
 					</a>
 				{/if}
@@ -35,3 +71,4 @@
 		</div>
 	</div>
 </nav>
+

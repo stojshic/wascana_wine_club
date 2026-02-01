@@ -10,5 +10,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
+<main class="pt-26">
+  {@render children()}
+</main>
 <Toast />
