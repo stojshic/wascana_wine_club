@@ -8,7 +8,7 @@
 	let { children } = $props();
 
 	// Auth pages that shouldn't show footer or header padding
-	const authRoutes = ['/login', '/register', '/forgot-password', '/reset-password', '/verify-email', '/verify-email-sent'];
+	const authRoutes = ['/login', '/register', '/forgot-password', '/reset-password', '/verify-email', '/verify-email-sent', '/setup-account'];
 	const isAuthPage = $derived(authRoutes.some(route => $page.url.pathname.startsWith(route)));
 </script>
 

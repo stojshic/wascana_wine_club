@@ -6,8 +6,9 @@
 	let { form } = $props();
 	let loading = $state(false);
 
-	// Check for password reset success
+	// Check for success messages
 	const resetSuccess = $derived($page.url.searchParams.get('reset') === 'success');
+	const setupSuccess = $derived($page.url.searchParams.get('setup') === 'success');
 
 	$effect(() => {
 		if (form?.error) {
@@ -15,6 +16,9 @@
 		}
 		if (resetSuccess) {
 			toast.success('Password reset successfully. Please log in.');
+		}
+		if (setupSuccess) {
+			toast.success('Account set up successfully. Please log in.');
 		}
 	});
 </script>
@@ -27,6 +31,12 @@
 		{#if resetSuccess}
 			<div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
 				Password reset successfully. Please log in with your new password.
+			</div>
+		{/if}
+
+		{#if setupSuccess}
+			<div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
+				Account set up successfully! Please log in.
 			</div>
 		{/if}
 
@@ -84,9 +94,5 @@
 			</button>
 		</form>
 
-		<p class="text-center text-gray-600 mt-6">
-			Don't have an account?
-			<a href="/register" class="text-gold-600 font-semibold hover:underline">Register</a>
-		</p>
-	</div>
+			</div>
 </div>

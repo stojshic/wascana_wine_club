@@ -16,14 +16,22 @@
 	}
 
 	const roleConfig = {
-		customer: { label: 'Customer', class: 'bg-gray-100 text-gray-800' },
+		customer: { label: 'Member', class: 'bg-gray-100 text-gray-800' },
 		admin: { label: 'Admin', class: 'bg-gold-100 text-gold-800' }
 	} as const;
 </script>
 
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
 	<h1 class="text-3xl font-bold text-gray-900">Users</h1>
-	<p class="text-gray-600">{data.users.length} total users</p>
+	<div class="flex items-center gap-4">
+		<p class="text-gray-600">{data.users.length} total users</p>
+		<a
+			href="/admin/users/new"
+			class="bg-gold-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gold-700 transition"
+		>
+			Add User
+		</a>
+	</div>
 </div>
 
 {#if data.users.length === 0}
@@ -70,7 +78,7 @@
 							disabled={updatingId === user.id}
 							class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none disabled:opacity-50"
 						>
-							<option value="customer" selected={user.role === 'customer'}>Customer</option>
+							<option value="customer" selected={user.role === 'customer'}>Member</option>
 							<option value="admin" selected={user.role === 'admin'}>Admin</option>
 						</select>
 						<button
@@ -166,7 +174,7 @@
 										disabled={updatingId === user.id}
 										class="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none disabled:opacity-50"
 									>
-										<option value="customer" selected={user.role === 'customer'}>Customer</option>
+										<option value="customer" selected={user.role === 'customer'}>Member</option>
 										<option value="admin" selected={user.role === 'admin'}>Admin</option>
 									</select>
 									<button

@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit';
 import { db } from '$lib/server/db';
-import { users } from '$lib/server/db/schema';
+import { users, sessions, reservations, emailVerificationTokens, passwordResetTokens } from '$lib/server/db/schema';
 import { eq, desc } from 'drizzle-orm';
 import type { PageServerLoad, Actions } from './$types';
 
@@ -61,6 +61,13 @@ export const actions: Actions = {
 			return fail(400, { error: 'You cannot delete yourself' });
 		}
 
+		// Delete related records first (foreign key constraints)
+		await db.delete(sessions).where(eq(sessions.userId, userId));
+		await db.delete(reservations).where(eq(reservations.userId, userId));
+		await db.delete(emailVerificationTokens).where(eq(emailVerificationTokens.userId, userId));
+		await db.delete(passwordResetTokens).where(eq(passwordResetTokens.userId, userId));
+
+		// Now delete the user
 		await db.delete(users).where(eq(users.id, userId));
 
 		return { success: true };

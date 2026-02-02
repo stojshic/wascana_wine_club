@@ -97,7 +97,7 @@
 					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
 					placeholder="10"
 				/>
-				<p class="text-sm text-gray-500 mt-1">Maximum number of bottles a customer can reserve at once</p>
+				<p class="text-sm text-gray-500 mt-1">Maximum number of bottles a member can reserve at once</p>
 			</div>
 
 			<div>

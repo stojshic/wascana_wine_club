@@ -129,7 +129,7 @@
 		<table class="w-full">
 			<thead class="bg-gray-50 border-b">
 				<tr>
-					<th class="text-left px-6 py-3 text-sm font-semibold text-gray-900">Customer</th>
+					<th class="text-left px-6 py-3 text-sm font-semibold text-gray-900">Member</th>
 					<th class="text-left px-6 py-3 text-sm font-semibold text-gray-900">Wine</th>
 					<th class="text-left px-6 py-3 text-sm font-semibold text-gray-900">Qty</th>
 					<th class="text-left px-6 py-3 text-sm font-semibold text-gray-900">Total</th>

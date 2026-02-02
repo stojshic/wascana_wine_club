@@ -68,6 +68,35 @@ export async function sendPasswordResetEmail(email: string, name: string, token:
 	});
 }
 
+export async function sendInviteEmail(email: string, name: string, token: string) {
+	const setupUrl = `${APP_URL}/setup-account?token=${token}`;
+
+	await getResendClient().emails.send({
+		from: FROM_EMAIL,
+		to: email,
+		subject: 'Welcome to Wascana Wine Club - Set Up Your Account',
+		html: `
+			<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+				<h1 style="color: #c4a142;">Welcome to Wascana Wine Club!</h1>
+				<p>Hi ${name},</p>
+				<p>You've been invited to join Wascana Wine Club. Click the button below to set up your password and activate your account:</p>
+				<div style="margin: 30px 0;">
+					<a href="${setupUrl}" style="background-color: #c4a142; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block;">
+						Set Up My Account
+					</a>
+				</div>
+				<p>Or copy and paste this link into your browser:</p>
+				<p style="color: #666; word-break: break-all;">${setupUrl}</p>
+				<p>This link will expire in 7 days.</p>
+				<hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+				<p style="color: #999; font-size: 12px;">
+					If you weren't expecting this invitation, you can safely ignore this email.
+				</p>
+			</div>
+		`
+	});
+}
+
 export async function sendAccountLockedEmail(email: string, name: string) {
 	await getResendClient().emails.send({
 		from: FROM_EMAIL,

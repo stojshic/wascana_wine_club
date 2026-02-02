@@ -83,15 +83,9 @@
 				{:else}
 					<a
 						href="/login"
-						class="px-4 py-2 rounded-lg text-gray-700 hover:bg-[#c4a142] transition"
-					>
-						Login
-					</a>
-					<a
-						href="/register"
 						class="bg-gold-600 text-white px-4 py-2 rounded-lg hover:bg-gold-700 transition"
 					>
-						Register
+						Login
 					</a>
 				{/if}
 			</div>
@@ -133,16 +127,9 @@
 					<a
 						href="/login"
 						onclick={closeMenu}
-						class="block px-4 py-3 rounded-lg text-gray-700 hover:bg-gold-100 transition"
-					>
-						Login
-					</a>
-					<a
-						href="/register"
-						onclick={closeMenu}
 						class="block px-4 py-3 rounded-lg bg-gold-600 text-white hover:bg-gold-700 transition text-center"
 					>
-						Register
+						Login
 					</a>
 				{/if}
 			</div>
