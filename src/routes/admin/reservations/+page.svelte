@@ -40,7 +40,7 @@
 		<select
 			id="filter"
 			bind:value={filterStatus}
-			class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+			class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
 		>
 			<option value="all">All</option>
 			<option value="pending">Pending</option>
@@ -82,7 +82,7 @@
 								<p class="text-sm text-gray-500">{reservation.user.email}</p>
 							</td>
 							<td class="px-6 py-4">
-								<a href="/admin/wines/{reservation.wine.id}" class="text-purple-600 hover:text-purple-700 font-medium">
+								<a href="/admin/wines/{reservation.wine.id}" class="text-gold-600 hover:text-gold-700 font-medium">
 									{reservation.wine.name}
 								</a>
 							</td>
@@ -120,7 +120,7 @@
 									<select
 										name="status"
 										disabled={updatingId === reservation.id}
-										class="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none disabled:opacity-50"
+										class="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none disabled:opacity-50"
 									>
 										{#each statusOptions as status}
 											<option value={status} selected={reservation.status === status}>
@@ -131,7 +131,7 @@
 									<button
 										type="submit"
 										disabled={updatingId === reservation.id}
-										class="px-3 py-1 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition disabled:opacity-50"
+										class="px-3 py-1 text-sm bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition disabled:opacity-50"
 									>
 										{updatingId === reservation.id ? '...' : 'Update'}
 									</button>

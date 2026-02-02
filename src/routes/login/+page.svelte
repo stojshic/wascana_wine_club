@@ -19,7 +19,7 @@
 	});
 </script>
 
-<div class="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-red-900 flex items-center justify-center p-4">
+<div class="min-h-screen bg-gradient-to-br from-gold-900 via-gold-800 to-amber-900 flex items-center justify-center p-4">
 	<div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
 		<h1 class="text-3xl font-bold text-gray-900 text-center mb-2">Welcome Back</h1>
 		<p class="text-gray-600 text-center mb-8">Sign in to your account</p>
@@ -55,7 +55,7 @@
 					name="email"
 					value={form?.email ?? ''}
 					required
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition"
 					placeholder="you@example.com"
 				/>
 			</div>
@@ -63,14 +63,14 @@
 			<div>
 				<div class="flex items-center justify-between mb-1">
 					<label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-					<a href="/forgot-password" class="text-sm text-purple-600 hover:underline">Forgot password?</a>
+					<a href="/forgot-password" class="text-sm text-gold-600 hover:underline">Forgot password?</a>
 				</div>
 				<input
 					type="password"
 					id="password"
 					name="password"
 					required
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition"
 					placeholder="Your password"
 				/>
 			</div>
@@ -78,7 +78,7 @@
 			<button
 				type="submit"
 				disabled={loading}
-				class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition disabled:opacity-50"
+				class="w-full bg-gold-600 text-white py-3 rounded-lg font-semibold hover:bg-gold-700 transition disabled:opacity-50"
 			>
 				{loading ? 'Signing in...' : 'Sign In'}
 			</button>
@@ -86,7 +86,7 @@
 
 		<p class="text-center text-gray-600 mt-6">
 			Don't have an account?
-			<a href="/register" class="text-purple-600 font-semibold hover:underline">Register</a>
+			<a href="/register" class="text-gold-600 font-semibold hover:underline">Register</a>
 		</p>
 	</div>
 </div>

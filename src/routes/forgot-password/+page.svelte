@@ -5,7 +5,7 @@
 	let loading = $state(false);
 </script>
 
-<div class="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-red-900 flex items-center justify-center p-4">
+<div class="min-h-screen bg-gradient-to-br from-gold-900 via-gold-800 to-amber-900 flex items-center justify-center p-4">
 	<div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
 		{#if form?.success}
 			<div class="text-center">
@@ -20,7 +20,7 @@
 					If an account exists with that email, we've sent a password reset link.
 				</p>
 
-				<a href="/login" class="block w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+				<a href="/login" class="block w-full bg-gold-600 text-white py-3 rounded-lg font-semibold hover:bg-gold-700 transition">
 					Back to Login
 				</a>
 			</div>
@@ -52,7 +52,7 @@
 						id="email"
 						name="email"
 						required
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition"
 						placeholder="you@example.com"
 					/>
 				</div>
@@ -60,7 +60,7 @@
 				<button
 					type="submit"
 					disabled={loading}
-					class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition disabled:opacity-50"
+					class="w-full bg-gold-600 text-white py-3 rounded-lg font-semibold hover:bg-gold-700 transition disabled:opacity-50"
 				>
 					{loading ? 'Sending...' : 'Send Reset Link'}
 				</button>
@@ -68,7 +68,7 @@
 
 			<p class="text-center text-gray-600 mt-6">
 				Remember your password?
-				<a href="/login" class="text-purple-600 font-semibold hover:underline">Login</a>
+				<a href="/login" class="text-gold-600 font-semibold hover:underline">Login</a>
 			</p>
 		{/if}
 	</div>

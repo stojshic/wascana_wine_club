@@ -7,7 +7,7 @@
 
 <div class="max-w-2xl">
 	<div class="mb-8">
-		<a href="/admin/wines" class="text-purple-600 hover:text-purple-700 text-sm">← Back to wines</a>
+		<a href="/admin/wines" class="text-gold-600 hover:text-gold-700 text-sm">← Back to wines</a>
 		<h1 class="text-3xl font-bold text-gray-900 mt-2">Add New Wine</h1>
 	</div>
 
@@ -37,7 +37,7 @@
 					name="name"
 					value={form?.name ?? ''}
 					required
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
 					placeholder="e.g., Château Margaux 2018"
 				/>
 			</div>
@@ -49,7 +49,7 @@
 					name="description"
 					rows="4"
 					required
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none resize-none"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none resize-none"
 					placeholder="Describe the wine's taste, origin, pairing suggestions..."
 				>{form?.description ?? ''}</textarea>
 			</div>
@@ -65,7 +65,7 @@
 						required
 						min="0"
 						step="0.01"
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
 						placeholder="0.00"
 					/>
 				</div>
@@ -79,10 +79,25 @@
 						value={form?.stock ?? ''}
 						required
 						min="0"
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
 						placeholder="0"
 					/>
 				</div>
+			</div>
+
+			<div>
+				<label for="maxReserveQuantity" class="block text-sm font-medium text-gray-700 mb-1">Max Reserve Quantity</label>
+				<input
+					type="number"
+					id="maxReserveQuantity"
+					name="maxReserveQuantity"
+					value={form?.maxReserveQuantity ?? 10}
+					required
+					min="1"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
+					placeholder="10"
+				/>
+				<p class="text-sm text-gray-500 mt-1">Maximum number of bottles a customer can reserve at once</p>
 			</div>
 
 			<div>
@@ -92,7 +107,7 @@
 					id="imageUrl"
 					name="imageUrl"
 					value={form?.imageUrl ?? ''}
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
 					placeholder="https://example.com/wine-image.jpg"
 				/>
 				<p class="text-sm text-gray-500 mt-1">Enter a URL to an image of the wine</p>
@@ -102,7 +117,7 @@
 				<button
 					type="submit"
 					disabled={loading}
-					class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition disabled:opacity-50"
+					class="bg-gold-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gold-700 transition disabled:opacity-50"
 				>
 					{loading ? 'Adding...' : 'Add Wine'}
 				</button>

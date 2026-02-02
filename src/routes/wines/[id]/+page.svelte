@@ -10,7 +10,7 @@
 	let showSuccess = $state(false);
 	let successMessage = $state('');
 
-	const maxQuantity = Math.min(data.wine.stock, 10);
+	const maxQuantity = Math.min(data.wine.stock, data.wine.maxReserveQuantity ?? 10);
 
 	function incrementQuantity() {
 		if (quantity < maxQuantity) quantity++;
@@ -25,7 +25,7 @@
 	<Header user={data.user} />
 
 	<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-		<a href="/" class="inline-flex items-center text-purple-600 hover:text-purple-700 mb-6">
+		<a href="/" class="inline-flex items-center text-gold-600 hover:text-gold-700 mb-6">
 			<svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 			</svg>
@@ -56,7 +56,7 @@
 					<h1 class="text-3xl font-bold text-gray-900 mb-2">{data.wine.name}</h1>
 
 					<div class="flex items-center gap-4 mb-6">
-						<span class="text-3xl font-bold text-purple-600">${data.wine.price.toFixed(2)}</span>
+						<span class="text-3xl font-bold text-gold-600">${data.wine.price.toFixed(2)}</span>
 						{#if data.wine.stock === 0}
 							<span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">Out of Stock</span>
 						{:else if data.wine.stock <= 5}
@@ -84,7 +84,7 @@
 								</div>
 							</div>
 							<div class="flex gap-3">
-								<a href="/dashboard" class="bg-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-purple-700 transition">
+								<a href="/dashboard" class="bg-gold-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gold-700 transition">
 									View My Reservations
 								</a>
 								<button
@@ -156,7 +156,7 @@
 												bind:value={quantity}
 												min="1"
 												max={maxQuantity}
-												class="w-20 text-center px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+												class="w-20 text-center px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none"
 											/>
 											<button
 												type="button"
@@ -175,12 +175,12 @@
 
 									<div class="flex items-center justify-between pt-2">
 										<span class="text-lg text-gray-600">
-											Total: <span class="font-bold text-purple-600">${(data.wine.price * quantity).toFixed(2)}</span>
+											Total: <span class="font-bold text-gold-600">${(data.wine.price * quantity).toFixed(2)}</span>
 										</span>
 										<button
 											type="submit"
 											disabled={loading}
-											class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+											class="bg-gold-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gold-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
 										>
 											{loading ? 'Reserving...' : 'Reserve Now'}
 										</button>
@@ -197,7 +197,7 @@
 							<p class="text-gray-600 mb-4">Please log in to reserve this wine</p>
 							<a
 								href="/login"
-								class="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+								class="inline-block bg-gold-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gold-700 transition"
 							>
 								Login to Reserve
 							</a>

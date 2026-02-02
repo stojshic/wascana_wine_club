@@ -58,11 +58,11 @@
 			</div>
 		</div>
 		<!-- Mobile nav -->
-		<div class="md:hidden border-t border-purple-100 px-4 py-2 flex gap-2">
+		<div class="md:hidden border-t border-gold-100 px-4 py-2 flex gap-2">
 			{#each navItems as item}
 				<a
 					href={item.href}
-					class="flex-1 text-center px-3 py-2 rounded-lg text-sm transition {isActive(item.href) ? 'bg-purple-200' : 'hover:bg-purple-800'}"
+					class="flex-1 text-center px-3 py-2 rounded-lg text-sm transition {isActive(item.href) ? 'bg-gold-200' : 'hover:bg-gold-800'}"
 				>
 					{item.label}
 				</a>

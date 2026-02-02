@@ -40,7 +40,7 @@
 			<h1 class="text-3xl font-bold text-gray-900">My Reservations</h1>
 			<a
 				href="/"
-				class="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition"
+				class="bg-gold-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gold-700 transition"
 			>
 				Browse Wines
 			</a>
@@ -57,7 +57,7 @@
 				<p class="text-gray-600 mb-6">Browse our wine collection and make your first reservation!</p>
 				<a
 					href="/"
-					class="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+					class="inline-block bg-gold-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gold-700 transition"
 				>
 					Browse Wines
 				</a>
@@ -90,7 +90,7 @@
 									<div class="flex-1 min-w-0">
 										<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
 											<div>
-												<a href="/wines/{reservation.wine.id}" class="font-semibold text-gray-900 hover:text-purple-600 transition">
+												<a href="/wines/{reservation.wine.id}" class="font-semibold text-gray-900 hover:text-gold-600 transition">
 													{reservation.wine.name}
 												</a>
 												<p class="text-sm text-gray-600">
@@ -104,7 +104,7 @@
 												<span class="px-3 py-1 rounded-full text-sm font-medium {statusConfig[reservation.status].class}">
 													{statusConfig[reservation.status].label}
 												</span>
-												<span class="font-semibold text-purple-600">
+												<span class="font-semibold text-gold-600">
 													${(reservation.wine.price * reservation.quantity).toFixed(2)}
 												</span>
 											</div>

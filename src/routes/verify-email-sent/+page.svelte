@@ -6,10 +6,10 @@
 	let resending = $state(false);
 </script>
 
-<div class="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-red-900 flex items-center justify-center p-4">
+<div class="min-h-screen bg-gradient-to-br from-gold-900 via-gold-800 to-amber-900 flex items-center justify-center p-4">
 	<div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8 text-center">
-		<div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-			<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+		<div class="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto mb-6">
+			<svg class="w-8 h-8 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
 			</svg>
 		</div>
@@ -27,7 +27,7 @@
 		</div>
 
 		<div class="space-y-4">
-			<a href="/" class="block w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+			<a href="/" class="block w-full bg-gold-600 text-white py-3 rounded-lg font-semibold hover:bg-gold-700 transition">
 				Browse Wines
 			</a>
 

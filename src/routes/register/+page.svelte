@@ -12,7 +12,7 @@
 	});
 </script>
 
-<div class="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-red-900 flex items-center justify-center p-4">
+<div class="min-h-screen bg-gradient-to-br from-gold-900 via-gold-800 to-amber-900 flex items-center justify-center p-4">
 	<div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
 		<h1 class="text-3xl font-bold text-gray-900 text-center mb-2">Create Account</h1>
 		<p class="text-gray-600 text-center mb-8">Join our wine club</p>
@@ -42,7 +42,7 @@
 					name="name"
 					value={form?.name ?? ''}
 					required
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition"
 					placeholder="Your name"
 				/>
 			</div>
@@ -55,7 +55,7 @@
 					name="email"
 					value={form?.email ?? ''}
 					required
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition"
 					placeholder="you@example.com"
 				/>
 			</div>
@@ -68,7 +68,7 @@
 					name="password"
 					required
 					minlength="6"
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition"
 					placeholder="At least 6 characters"
 				/>
 			</div>
@@ -81,7 +81,7 @@
 					name="confirmPassword"
 					required
 					minlength="6"
-					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+					class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition"
 					placeholder="Repeat your password"
 				/>
 			</div>
@@ -89,7 +89,7 @@
 			<button
 				type="submit"
 				disabled={loading}
-				class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition disabled:opacity-50"
+				class="w-full bg-gold-600 text-white py-3 rounded-lg font-semibold hover:bg-gold-700 transition disabled:opacity-50"
 			>
 				{loading ? 'Creating account...' : 'Create Account'}
 			</button>
@@ -97,7 +97,7 @@
 
 		<p class="text-center text-gray-600 mt-6">
 			Already have an account?
-			<a href="/login" class="text-purple-600 font-semibold hover:underline">Login</a>
+			<a href="/login" class="text-gold-600 font-semibold hover:underline">Login</a>
 		</p>
 	</div>
 </div>

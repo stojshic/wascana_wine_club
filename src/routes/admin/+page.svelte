@@ -7,7 +7,7 @@
 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 	<div class="bg-white rounded-xl shadow p-6">
 		<p class="text-sm text-gray-600 mb-1">Total Wines</p>
-		<p class="text-3xl font-bold text-purple-600">{data.stats.wines}</p>
+		<p class="text-3xl font-bold text-gold-600">{data.stats.wines}</p>
 	</div>
 	<div class="bg-white rounded-xl shadow p-6">
 		<p class="text-sm text-gray-600 mb-1">Total Users</p>

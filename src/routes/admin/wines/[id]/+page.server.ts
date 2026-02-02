@@ -33,14 +33,16 @@ export const actions: Actions = {
 		const description = formData.get('description')?.toString().trim();
 		const priceStr = formData.get('price')?.toString();
 		const stockStr = formData.get('stock')?.toString();
+		const maxReserveQuantityStr = formData.get('maxReserveQuantity')?.toString();
 		const imageUrl = formData.get('imageUrl')?.toString().trim() || null;
 
-		if (!name || !description || !priceStr || !stockStr) {
+		if (!name || !description || !priceStr || !stockStr || !maxReserveQuantityStr) {
 			return fail(400, { error: 'All fields are required' });
 		}
 
 		const price = parseFloat(priceStr);
 		const stock = parseInt(stockStr);
+		const maxReserveQuantity = parseInt(maxReserveQuantityStr);
 
 		if (isNaN(price) || price < 0) {
 			return fail(400, { error: 'Invalid price' });
@@ -50,6 +52,10 @@ export const actions: Actions = {
 			return fail(400, { error: 'Invalid stock quantity' });
 		}
 
+		if (isNaN(maxReserveQuantity) || maxReserveQuantity < 1) {
+			return fail(400, { error: 'Invalid max reserve quantity' });
+		}
+
 		await db
 			.update(wines)
 			.set({
@@ -57,6 +63,7 @@ export const actions: Actions = {
 				description,
 				price,
 				stock,
+				maxReserveQuantity,
 				imageUrl
 			})
 			.where(eq(wines.id, wineId));

@@ -17,7 +17,7 @@
 
 	const roleConfig = {
 		customer: { label: 'Customer', class: 'bg-gray-100 text-gray-800' },
-		admin: { label: 'Admin', class: 'bg-purple-100 text-purple-800' }
+		admin: { label: 'Admin', class: 'bg-gold-100 text-gold-800' }
 	} as const;
 </script>
 
@@ -80,7 +80,7 @@
 										<select
 											name="role"
 											disabled={updatingId === user.id}
-											class="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none disabled:opacity-50"
+											class="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none disabled:opacity-50"
 										>
 											<option value="customer" selected={user.role === 'customer'}>Customer</option>
 											<option value="admin" selected={user.role === 'admin'}>Admin</option>
@@ -88,7 +88,7 @@
 										<button
 											type="submit"
 											disabled={updatingId === user.id}
-											class="px-3 py-1 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition disabled:opacity-50"
+											class="px-3 py-1 text-sm bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition disabled:opacity-50"
 										>
 											{updatingId === user.id ? '...' : 'Update'}
 										</button>

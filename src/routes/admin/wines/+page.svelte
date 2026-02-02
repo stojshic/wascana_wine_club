@@ -10,7 +10,7 @@
 	<h1 class="text-3xl font-bold text-gray-900">Wines</h1>
 	<a
 		href="/admin/wines/new"
-		class="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition"
+		class="bg-gold-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gold-700 transition"
 	>
 		Add Wine
 	</a>
@@ -21,7 +21,7 @@
 		<p class="text-gray-600 mb-4">No wines in catalog yet</p>
 		<a
 			href="/admin/wines/new"
-			class="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+			class="inline-block bg-gold-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gold-700 transition"
 		>
 			Add Your First Wine
 		</a>
@@ -74,7 +74,7 @@
 								<div class="flex items-center justify-end gap-2">
 									<a
 										href="/admin/wines/{wine.id}"
-										class="text-purple-600 hover:text-purple-700 font-medium text-sm"
+										class="text-gold-600 hover:text-gold-700 font-medium text-sm"
 									>
 										Edit
 									</a>

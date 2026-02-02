@@ -1,5 +1,39 @@
 # Wine Reservation App - Implementation Plan
 
+---
+
+## Current Sprint: UI/UX Improvements
+
+### 1. Color Palette Update (Purple → Gold) ✅
+- [x] Change primary color from purple to #c4a142 (gold)
+- [x] Update all color references throughout the project
+- [x] Create consistent gold color palette (lighter/darker variants)
+
+### 2. Footer Addition ✅
+- [x] Add footer component
+- [x] Copyright text: "Wascana Wine Club"
+- [x] "Designed by MinimalPC" with link to https://minimalpc.rs
+- [x] Style in darker gold color (slightly darker than #c4a142)
+
+### 3. Mobile Hamburger Menu ✅
+- [x] Implement hamburger menu icon for mobile view
+- [x] Center the logo in mobile header
+- [x] Keep desktop navigation unchanged
+- [x] Add smooth menu toggle animation
+
+### 4. Login Page Spacing Fix ✅
+- [x] Fix 26px white space on top of login page
+- [x] Adjust for pt-26 header height changes
+
+### 5. Admin-Configurable Max Quantity per Wine ✅
+- [x] Add `maxReserveQuantity` field to wine database schema
+- [x] Update wine edit screen with max quantity input field
+- [x] Replace hardcoded `const maxQuantity = 10` with per-wine setting
+- [x] Update reservation logic to use wine-specific max quantity
+- [x] Run database migration
+
+---
+
 ## Tech Stack
 - **Framework:** SvelteKit
 - **Database:** SQLite (with Drizzle ORM) - can migrate to PostgreSQL later

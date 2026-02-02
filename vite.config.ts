@@ -13,7 +13,7 @@ export default defineConfig({
 				name: 'Wine Club',
 				short_name: 'Wine Club',
 				description: 'Reserve your favorite wines for pickup',
-				theme_color: '#7c3aed',
+				theme_color: '#c4a142',
 				background_color: '#f3f4f6',
 				display: 'standalone',
 				scope: '/',

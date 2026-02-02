@@ -19,11 +19,11 @@ export async function sendVerificationEmail(email: string, name: string, token: 
 		subject: 'Verify your email - Wascana Wine Club',
 		html: `
 			<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-				<h1 style="color: #7c3aed;">Welcome to Wascana Wine Club!</h1>
+				<h1 style="color: #c4a142;">Welcome to Wascana Wine Club!</h1>
 				<p>Hi ${name},</p>
 				<p>Thanks for signing up! Please verify your email address by clicking the button below:</p>
 				<div style="margin: 30px 0;">
-					<a href="${verifyUrl}" style="background-color: #7c3aed; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block;">
+					<a href="${verifyUrl}" style="background-color: #c4a142; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block;">
 						Verify Email
 					</a>
 				</div>
@@ -48,11 +48,11 @@ export async function sendPasswordResetEmail(email: string, name: string, token:
 		subject: 'Reset your password - Wascana Wine Club',
 		html: `
 			<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-				<h1 style="color: #7c3aed;">Password Reset Request</h1>
+				<h1 style="color: #c4a142;">Password Reset Request</h1>
 				<p>Hi ${name},</p>
 				<p>We received a request to reset your password. Click the button below to create a new password:</p>
 				<div style="margin: 30px 0;">
-					<a href="${resetUrl}" style="background-color: #7c3aed; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block;">
+					<a href="${resetUrl}" style="background-color: #c4a142; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block;">
 						Reset Password
 					</a>
 				</div>

@@ -44,11 +44,11 @@
 		{/if}
 	</div>
 	<div class="p-4">
-		<h3 class="font-semibold text-gray-900 text-lg mb-1 group-hover:text-purple-600 transition">{name}</h3>
+		<h3 class="font-semibold text-gray-900 text-lg mb-1 group-hover:text-gold-600 transition">{name}</h3>
 		<p class="text-gray-600 text-sm mb-3">{truncatedDescription}</p>
 		<div class="flex items-center justify-between">
-			<span class="text-xl font-bold text-purple-600">${price.toFixed(2)}</span>
-			<span class="text-sm text-purple-600 group-hover:translate-x-1 transition">View →</span>
+			<span class="text-xl font-bold text-gold-600">${price.toFixed(2)}</span>
+			<span class="text-sm text-gold-600 group-hover:translate-x-1 transition">View →</span>
 		</div>
 	</div>
 </a>

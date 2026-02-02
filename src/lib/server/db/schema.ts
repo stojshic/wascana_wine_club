@@ -17,6 +17,7 @@ export const wines = sqliteTable('wines', {
 	price: real('price').notNull(),
 	imageUrl: text('image_url'),
 	stock: integer('stock').notNull().default(0),
+	maxReserveQuantity: integer('max_reserve_quantity').notNull().default(10),
 	createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date())
 });
 
