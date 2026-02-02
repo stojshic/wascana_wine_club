@@ -28,6 +28,12 @@ export const actions: Actions = {
 			return fail(400, { error: 'Invalid wine' });
 		}
 
+		// Get current wine to check stock status
+		const currentWine = await db.select().from(wines).where(eq(wines.id, wineId)).get();
+		if (!currentWine) {
+			return fail(404, { error: 'Wine not found' });
+		}
+
 		const formData = await request.formData();
 		const name = formData.get('name')?.toString().trim();
 		const description = formData.get('description')?.toString().trim();
@@ -56,6 +62,16 @@ export const actions: Actions = {
 			return fail(400, { error: 'Invalid max reserve quantity' });
 		}
 
+		// Determine soldOutAt value based on stock changes
+		let soldOutAt: Date | null = currentWine.soldOutAt;
+		if (stock === 0 && currentWine.stock > 0) {
+			// Just went out of stock
+			soldOutAt = new Date();
+		} else if (stock > 0 && currentWine.stock === 0) {
+			// Back in stock
+			soldOutAt = null;
+		}
+
 		await db
 			.update(wines)
 			.set({
@@ -64,7 +80,8 @@ export const actions: Actions = {
 				price,
 				stock,
 				maxReserveQuantity,
-				imageUrl
+				imageUrl,
+				soldOutAt
 			})
 			.where(eq(wines.id, wineId));
 

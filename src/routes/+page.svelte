@@ -1,8 +1,10 @@
 <script lang="ts">
 	import WineCard from '$lib/components/WineCard.svelte';
 	import Header from '$lib/components/Header.svelte';
+	import { slide } from 'svelte/transition';
 
 	let { data } = $props();
+	let showSoldOut = $state(false);
 </script>
 
 <div class="min-h-screen bg-gray-100">
@@ -37,6 +39,45 @@
 					/>
 				{/each}
 			</div>
+		{/if}
+
+		{#if data.soldOutWines.length > 0}
+			<div class="mt-12 text-center">
+				<button
+					type="button"
+					onclick={() => showSoldOut = !showSoldOut}
+					class="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-medium"
+				>
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+					</svg>
+					{showSoldOut ? 'Hide' : 'Show'} Sold Out Wines ({data.soldOutWines.length})
+					<svg class="w-4 h-4 transition-transform {showSoldOut ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+					</svg>
+				</button>
+			</div>
+
+			{#if showSoldOut}
+				<div transition:slide={{ duration: 300 }} class="mt-8">
+					<div class="border-t border-gray-300 pt-8">
+						<h2 class="text-2xl font-bold text-gray-700 mb-6">Sold Out Wines</h2>
+						<p class="text-gray-500 mb-6">These wines are currently unavailable. Check back later for restocks.</p>
+						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 opacity-75">
+							{#each data.soldOutWines as wine}
+								<WineCard
+									id={wine.id}
+									name={wine.name}
+									description={wine.description}
+									price={wine.price}
+									imageUrl={wine.imageUrl}
+									stock={wine.stock}
+								/>
+							{/each}
+						</div>
+					</div>
+				</div>
+			{/if}
 		{/if}
 	</main>
 </div>

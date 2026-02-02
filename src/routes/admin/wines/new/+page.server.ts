@@ -71,7 +71,8 @@ export const actions: Actions = {
 			price,
 			stock,
 			maxReserveQuantity,
-			imageUrl
+			imageUrl,
+			soldOutAt: stock === 0 ? new Date() : null
 		});
 
 		redirect(302, '/admin/wines');
