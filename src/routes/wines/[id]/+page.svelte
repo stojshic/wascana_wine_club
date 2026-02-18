@@ -59,10 +59,14 @@
 						<span class="text-3xl font-bold text-gold-600">${data.wine.price.toFixed(2)}</span>
 						{#if data.wine.stock === 0}
 							<span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">Out of Stock</span>
+            <!--
 						{:else if data.wine.stock <= 5}
 							<span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">Only {data.wine.stock} left</span>
 						{:else}
 							<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">In Stock ({data.wine.stock})</span>
+            -->
+						{:else}
+							<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">In Stock</span>
 						{/if}
 					</div>
 
